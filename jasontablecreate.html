@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1"width="100%">
+        <tr>
+            <th>purchase id</th>
+            <th>date</th>
+            <th>vendor</th>
+            <th>Tax Category</th>
+            <th>Price</th>
+        </tr>
+        <script language="javascript">
+            var number={
+                "id":[
+                    {
+                        "purchaseid":"0001",
+                        "date":"10",
+                        "vendor":"Apple",
+                        "Taxcategory":"Office supplies",
+                        "price":"&60000"
+
+                    },
+                    {
+                        "purchaseid":"200",
+                        "date":"100",
+                        "vendor":"apples",
+                        "Taxcategory":"offic",
+                        "price":"&3000"
+
+                    }
+                ]
+            };
+            for(var i=0;i<number.id.length;i++){
+              document.writeln("<tr>");
+              document.writeln("<td>" + number.id[i].purchaseid + "</td>");
+              document.writeln("<td>" +number.id[i].date + "</td>");
+              document.writeln("<td>" +number.id[i].vendor + "</td>");
+              document.writeln("<td>" +number.id[i].Taxcategory + "</td>");
+              document.writeln("<td>" +number.id[i].price + "</td>");
+              document.writeln("</tr>");
+
+
+            }
+        </script>
+    </table>
+</body>
+</html>

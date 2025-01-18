@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Display Match Details using JSON in JavaScript</title>
+</head>
+<body>
+  <h2>Match Details</h2>
+        <table border="1" width="100%">
+          <tr>
+            <td><b>Match Type</b></td>
+            <td><b>Date</b></td>
+            <td><b>Participated Country</b></td>
+            <td><b>Man of the Match</b></td>
+          </tr>
+          <script language="javascript">
+            var matches = {
+              "Match": [
+                {
+                  "MatchType": "SemiFinal",
+                  "Date": "14/12/2022",
+                  "ParticipatedCountry": "Spain 2-1 Brazil",
+                  "ManoftheMatch": "Sergio Busquets"
+                },
+                {
+                  "MatchType": "SemiFinal",
+                  "Date": "15/12/2022",
+                  "ParticipatedCountries": {
+                    "ParticipatedCountry": [
+                      "Argentina",
+                      "France"
+                    ],
+                    "results": {
+                      "result": {
+                        "Argentina": 1,
+                        "France": 1
+                      },
+                      "tiebreaker": {
+                        "Argentina": 3,
+                        "France": 4
+                      }
+                    }
+                  },
+                  "ManoftheMatch": "Lionel Messi"
+                },
+                {
+                  "MatchType": "Final",
+                  "Date": "18/12/2022",
+                  "ParticipatedCountry": "Argentina 1-0 Spain",
+                  "ManoftheMatch": "Lionel Messi"
+                }
+              ]
+            };
+
+            for (var i = 0; i < matches.Match.length; i++) {
+              document.writeln("<tr>");
+              document.writeln("<td>" + matches.Match[i].MatchType + "</td>");
+              document.writeln("<td>" + matches.Match[i].Date + "</td>");
+
+              
+              var participatedCountry = matches.Match[i].ParticipatedCountry;
+              if (matches.Match[i].ParticipatedCountries) {
+                var countries = matches.Match[i].ParticipatedCountries.ParticipatedCountry;
+                var results = matches.Match[i].ParticipatedCountries.results;
+                participatedCountry = '';
+                for (var j = 0; j < countries.length; j++) {
+                  participatedCountry += countries[j] + " (" + results.result[countries[j]] + "-" + results.result[countries[(j + 1) % countries.length]];
+                  if (results.tiebreaker) {
+                    participatedCountry += ", Tiebreaker: " + results.tiebreaker[countries[j]];
+                  }
+                  participatedCountry += ")";
+                  if (j < countries.length - 1) {
+                    participatedCountry += ", ";
+                  }
+                }
+              }
+              document.writeln("<td>" + participatedCountry + "</td>");
+              document.writeln("<td>" + matches.Match[i].ManoftheMatch + "</td>");
+              document.writeln("</tr>");
+            }
+          </script>
+        </table>
+    
+ 
+</body>
+</html>

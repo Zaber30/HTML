@@ -1,0 +1,63 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Details</title>
+<!-- <style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style> -->
+</head>
+<body>
+
+<h2>Car Details</h2>
+
+<table id="carTable">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Company</th>
+      <th>Model</th>
+      <th>Engine</th>
+      <th>Mileage</th>
+    </tr>
+  </thead>
+  <tbody id="carTableBody">
+    <!-- Table body will be populated dynamically using JavaScript -->
+  </tbody>
+</table>
+
+
+<script>
+  var car = {
+    "id": "123456",
+    "company": "Toyota",
+    "model": "Corolla",
+    "engine": "1.8L Inline-4",
+    "mileage": "30 mpg"
+  };
+
+  var carTableBody = document.getElementById("carTableBody");
+
+  var row = document.createElement("tr");
+  row.innerHTML = "<td>" + car.id + "</td>" +
+                  "<td>" + car.company + "</td>" +
+                  "<td>" + car.model + "</td>" +
+                  "<td>" + car.engine + "</td>" +
+                  "<td>" + car.mileage + "</td>";
+  carTableBody.appendChild(row);
+</script>
+
+</body>
+</html>
